@@ -10,18 +10,18 @@
 	> With KeyPair
 	> Under Advances details >> IAM instance profile: Choose EC2CodeDeployn role
 	> User data: 
-				```
-				#!/bin/bash
-				sudo yum -y update
-				sudo yum -y install ruby
-				sudo yum -y install wget
-				cd /home/ec2-user
-				wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install
-				sudo chmod +x ./install
-				sudo ./install auto
-				sudo yum install -y python-pip
-				sudo pip install awscli
-				```
+```
+#!/bin/bash
+sudo yum -y update
+sudo yum -y install ruby
+sudo yum -y install wget
+cd /home/ec2-user
+wget https://aws-codedeploy-ap-south-1.s3.ap-south-1.amazonaws.com/latest/install
+sudo chmod +x ./install
+sudo ./install auto
+sudo yum install -y python-pip
+sudo pip install awscli
+```
 3. Create Code Deploy (Search for CodePipeline)
 	> Expand Deploy . CodeDeploy: Click on **Create application**, Application name: Seetha-CICD, Compute platform: EC2/On-premises
 	> Click on **Create deployment group**, Deployment group name: Seetha-CICD-DP, Service role: CodeDeployRole, Environment configuration: Tick on "Amazon EC2 instance", Deployment Settings: CodeDeployDefault.HalfAtATime; TAG::Key:Name, Value: Seetha-CICD
